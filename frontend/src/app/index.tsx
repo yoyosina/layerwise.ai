@@ -13,6 +13,7 @@ export default function LoginScreen() {
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     webClientId: '317193772618-b7bdlts6kj58jrku9lpc1kf903j7duan.apps.googleusercontent.com',
+    redirectUri: 'https://layerwise-ai.vercel.app',
   });
 
   useEffect(() => {
@@ -74,9 +75,9 @@ export default function LoginScreen() {
       </View>
       
       <TouchableOpacity 
-        style={[styles.button, !request && { opacity: 0.5 }]} 
+        style={styles.button} 
         onPress={handleLogin}
-        disabled={!request || loading}
+        disabled={loading}
       >
         {loading ? (
           <ActivityIndicator color="#208AEF" />
