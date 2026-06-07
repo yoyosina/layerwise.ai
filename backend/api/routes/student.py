@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from backend.database import get_db
-from backend.models.student import StudentProgress, VideoProgress
-from backend.api.dependencies import get_current_user
+from database import get_db
+from models.student import StudentProgress, VideoProgress
+from api.dependencies import get_current_user
 from pydantic import BaseModel
 
 class VideoProgressUpdate(BaseModel):

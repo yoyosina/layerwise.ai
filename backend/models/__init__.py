@@ -1,2 +1,2 @@
-from backend.models.user import User
-from backend.models.curriculum import Module, Task, Resource
+from models.user import User
+from models.curriculum import Module, Task, Resource

@@ -4,9 +4,9 @@ from pydantic import BaseModel
 from typing import List, Dict
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from backend.database import get_db
-from backend.models.student import StudentProgress, TestResult
-from backend.api.dependencies import get_current_user
+from database import get_db
+from models.student import StudentProgress, TestResult
+from api.dependencies import get_current_user
 
 router = APIRouter()
 

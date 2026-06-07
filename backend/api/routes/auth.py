@@ -4,15 +4,15 @@ from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from backend.database import get_db
-from backend.models.user import User
-from backend.models.student import StudentProgress
-from backend.core.config import settings
+from database import get_db
+from models.user import User
+from models.student import StudentProgress
+from core.config import settings
 import jwt
 import requests
 from datetime import datetime, timedelta
 from typing import Optional
-from backend.api.dependencies import get_current_user
+from api.dependencies import get_current_user
 
 router = APIRouter()
 

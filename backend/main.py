@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.api.routes import auth, curriculum, admin, student, quiz
+from api.routes import auth, curriculum, admin, student, quiz
 
 app = FastAPI(title="Layerwise.ai Backend API")
 

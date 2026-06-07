@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base, sessionmaker
-from backend.core.config import settings
+from core.config import settings
 
 # Async engine for SQLite
 engine = create_async_engine(settings.DATABASE_URL, echo=True)
