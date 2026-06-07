@@ -14,7 +14,7 @@ export default function OnboardingScreen() {
     setLoading(true);
     try {
       const token = await AsyncStorage.getItem('user_token');
-      const response = await fetch('http://127.0.0.1:8005/api/auth/onboard', {
+      const response = await fetch('https://layerwise-ai.onrender.com/api/auth/onboard', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

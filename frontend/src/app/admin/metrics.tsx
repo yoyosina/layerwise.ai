@@ -7,7 +7,7 @@ export default function AdminMetricsScreen() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8005/api/admin/metrics')
+    fetch('https://layerwise-ai.onrender.com/api/admin/metrics')
       .then(res => res.json())
       .then(data => setMetrics(data))
       .catch(err => console.error(err));

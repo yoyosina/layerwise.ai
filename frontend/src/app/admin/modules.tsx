@@ -19,7 +19,7 @@ export default function AdminModulesScreen() {
 
   const fetchModules = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8005/api/admin/modules');
+      const res = await fetch('https://layerwise-ai.onrender.com/api/admin/modules');
       const data = await res.json();
       if (data.modules) setModules(data.modules);
     } catch (err) {
@@ -30,7 +30,7 @@ export default function AdminModulesScreen() {
   const handleSaveNew = async () => {
     setStatus('Saving...');
     try {
-      const res = await fetch('http://127.0.0.1:8005/api/admin/modules', {
+      const res = await fetch('https://layerwise-ai.onrender.com/api/admin/modules', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -52,7 +52,7 @@ export default function AdminModulesScreen() {
 
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`http://127.0.0.1:8005/api/admin/modules/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/admin/modules/${id}`, { method: 'DELETE' });
       if (res.ok) {
         setModules(modules.filter(m => m.id !== id));
       }
@@ -63,7 +63,7 @@ export default function AdminModulesScreen() {
 
   const handleSaveEdit = async (id: number) => {
     try {
-      const res = await fetch(`http://127.0.0.1:8005/api/admin/modules/${id}`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/admin/modules/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: editTitle })

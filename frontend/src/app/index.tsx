@@ -31,7 +31,7 @@ export default function LoginScreen() {
       if (accessToken) payload.access_token = accessToken;
       if (idToken) payload.id_token = idToken;
 
-      const res = await fetch('http://127.0.0.1:8005/api/auth/login', {
+      const res = await fetch('https://layerwise-ai.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

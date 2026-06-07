@@ -17,7 +17,7 @@ export default function DailyQuizScreen() {
       try {
         const token = await AsyncStorage.getItem('user_token');
         const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
-        const res = await fetch(`http://127.0.0.1:8005/api/quiz/daily/${dayId}`, { headers });
+        const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}`, { headers });
         const data = await res.json();
         setQuestions(data.questions || []);
       } catch (err) {
@@ -37,7 +37,7 @@ export default function DailyQuizScreen() {
   const submitQuiz = async () => {
     try {
       const token = await AsyncStorage.getItem('user_token');
-      const res = await fetch(`http://127.0.0.1:8005/api/quiz/daily/${dayId}/submit`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}/submit`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
