@@ -67,6 +67,12 @@ export default function LoginScreen() {
         alert("Google Auth is still initializing or blocked. Please refresh the page or try another browser.");
         return;
       }
+      
+      if (Platform.OS === 'web') {
+        window.location.href = request.url;
+        return;
+      }
+      
       await promptAsync();
     } catch (e: any) {
       alert("Login Error: " + e.message);
