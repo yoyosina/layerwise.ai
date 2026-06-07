@@ -1,6 +1,6 @@
 # 🚀 LayerWise (LayerWise.ai)
 
-Welcome to **LayerWise** (part of the Likewise.ai platform) — your ultimate learning and progression tracking application! LayerWise is designed to provide an interactive, structured, and engaging way to consume educational content, track video progress, take quizzes, and visualize your learning journey through a unique Zig-Zag Roadmap.
+Welcome to **LayerWise** (part of the Layerwise.ai platform) — your ultimate learning and progression tracking application! LayerWise is designed to provide an interactive, structured, and engaging way to consume educational content, track video progress, take quizzes, and visualize your learning journey through a unique Zig-Zag Roadmap.
 
 ---
 
