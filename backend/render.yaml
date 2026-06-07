@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: likewise-api
+    name: Layerwise-api
     env: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
@@ -8,4 +8,4 @@ services:
       - key: PYTHON_VERSION
         value: 3.10.0
       - key: DATABASE_URL
-        value: sqlite+aiosqlite:///./likewise.db
+        value: sqlite+aiosqlite:///./Layerwise.db

@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.api.routes import auth, curriculum, admin, student, quiz
 
-app = FastAPI(title="Likewise.ai Backend API")
+app = FastAPI(title="Layerwise.ai Backend API")
 
 # Configure CORS
 app.add_middleware(
@@ -21,7 +21,7 @@ app.include_router(quiz.router, prefix="/api/quiz", tags=["quiz"])
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Likewise.ai API"}
+    return {"message": "Welcome to Layerwise.ai API"}
 
 @app.get("/health")
 async def health_check():
