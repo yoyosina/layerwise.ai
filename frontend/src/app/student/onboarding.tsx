@@ -24,7 +24,7 @@ export default function OnboardingScreen() {
       });
       
       if (response.ok) {
-        router.replace('/student/dashboard');
+        router.replace('/learn');
       } else {
         alert('Failed to save profile.');
       }
