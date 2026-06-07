@@ -18,11 +18,33 @@ export default function LoginScreen() {
   });
 
   useEffect(() => {
+    if (Platform.OS === 'web' && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const params = new URLSearchParams(hash);
+      const accessToken = params.get('access_token');
+      const idToken = params.get('id_token');
+      const error = params.get('error');
+
+      if (error) {
+        alert("Google Login Error: " + error);
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } else if (accessToken || idToken) {
+        // We caught the tokens from the redirect! Verify them.
+        verifyTokenWithBackend(accessToken || undefined, idToken || undefined);
+        // Clear the URL hash so it doesn't trigger again on refresh
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     if (response?.type === 'success') {
       const { authentication } = response;
       if (authentication?.accessToken || authentication?.idToken) {
         verifyTokenWithBackend(authentication?.accessToken, authentication?.idToken);
       }
+    } else if (response?.type === 'error') {
+      alert("Auth Session Error: " + response.error?.message);
     }
   }, [response]);
 
