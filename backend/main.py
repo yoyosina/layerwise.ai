@@ -2,7 +2,16 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.routes import auth, curriculum, admin, student, quiz
 
-app = FastAPI(title="Layerwise.ai Backend API")
+from contextlib import asynccontextmanager
+from init_db import init_models
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the database tables on startup (especially for ephemeral Render disk)
+    await init_models()
+    yield
+
+app = FastAPI(title="Layerwise.ai Backend API", lifespan=lifespan)
 
 # Configure CORS
 app.add_middleware(
