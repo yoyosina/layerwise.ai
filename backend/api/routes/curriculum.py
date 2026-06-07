@@ -34,28 +34,51 @@ from typing import List
 class QuizEvaluationRequest(BaseModel):
     answers: dict[int, int] # mapping of question_id -> selected_option_id
 
+def load_quiz_data(day: int):
+    path = os.path.join(os.path.dirname(__file__), '../../quiz_data.json')
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data.get(str(day), None)
+    return None
+
 @router.get("/tasks/{day}/quiz")
 async def get_task_quiz(day: int):
-    # Mock returning 10 questions for a task
-    questions = []
-    for i in range(1, 11):
-        questions.append({
-            "id": i,
-            "text": f"Sample Question {i} for Day {day}?",
-            "options": [
-                {"id": 1, "text": "Option A"},
-                {"id": 2, "text": "Option B"},
-                {"id": 3, "text": "Option C"},
-                {"id": 4, "text": "Option D"}
-            ]
-        })
-    return {"questions": questions}
+    quiz_data = load_quiz_data(day)
+    if not quiz_data:
+        return {"questions": []}
+    
+    # Strip out the correct_option_id so the client doesn't see it
+    clean_questions = []
+    for q in quiz_data["questions"]:
+        clean_q = {
+            "id": q["id"],
+            "text": q["text"],
+            "options": q["options"]
+        }
+        clean_questions.append(clean_q)
+        
+    return {"questions": clean_questions}
 
 @router.post("/tasks/{day}/quiz/evaluate")
 async def evaluate_task_quiz(day: int, request: QuizEvaluationRequest):
-    # Mock evaluation logic
-    score = 80 # mock passing score
+    quiz_data = load_quiz_data(day)
+    if not quiz_data:
+        return {"score": 0, "passed": False, "message": "No quiz available for this day."}
+        
+    correct_count = 0
+    total_questions = len(quiz_data["questions"])
+    
+    for q in quiz_data["questions"]:
+        q_id = q["id"]
+        # Convert keys in request.answers if they come as strings
+        selected_option = request.answers.get(q_id) or request.answers.get(str(q_id))
+        if selected_option == q["correct_option_id"]:
+            correct_count += 1
+            
+    score = int((correct_count / total_questions) * 100) if total_questions > 0 else 0
     passed = score >= 75
+    
     return {
         "score": score,
         "passed": passed,

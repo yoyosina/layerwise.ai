@@ -1,0 +1,116 @@
+{
+  "1": {
+    "questions": [
+      {
+        "id": 1,
+        "text": "Who popularized the term 'vibe coding'?",
+        "options": [
+          {"id": 1, "text": "Sam Altman"},
+          {"id": 2, "text": "Andrej Karpathy"},
+          {"id": 3, "text": "Ilya Sutskever"},
+          {"id": 4, "text": "Lex Fridman"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 2,
+        "text": "What is the primary philosophy behind 'vibe coding'?",
+        "options": [
+          {"id": 1, "text": "Writing code without syntax highlighting"},
+          {"id": 2, "text": "Using LLMs to write the majority of code while the developer orchestrates"},
+          {"id": 3, "text": "Coding exclusively in virtual reality"},
+          {"id": 4, "text": "Using only vim without plugins"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 3,
+        "text": "Which of the following best describes the role of a developer in a vibe coding workflow?",
+        "options": [
+          {"id": 1, "text": "Line-by-line syntax writer"},
+          {"id": 2, "text": "Architect, reviewer, and orchestrator"},
+          {"id": 3, "text": "Manual code formatter"},
+          {"id": 4, "text": "Hardware optimization specialist"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 4,
+        "text": "What is a critical skill required for effective vibe coding?",
+        "options": [
+          {"id": 1, "text": "Memorizing standard library functions"},
+          {"id": 2, "text": "Prompt engineering and providing clear context to LLMs"},
+          {"id": 3, "text": "Typing speed above 120 WPM"},
+          {"id": 4, "text": "Writing assembly language by hand"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 5,
+        "text": "Which of the following tools is most commonly associated with a modern vibe coding workflow?",
+        "options": [
+          {"id": 1, "text": "Notepad++"},
+          {"id": 2, "text": "Cursor IDE"},
+          {"id": 3, "text": "Eclipse"},
+          {"id": 4, "text": "NetBeans"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 6,
+        "text": "In vibe coding, what is the best practice when an LLM generates code that doesn't work?",
+        "options": [
+          {"id": 1, "text": "Delete the entire file and start over manually"},
+          {"id": 2, "text": "Provide the error message and context back to the LLM to guide it towards the fix"},
+          {"id": 3, "text": "Ignore the error and deploy to production"},
+          {"id": 4, "text": "Switch to a different programming language"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 7,
+        "text": "How does vibe coding change the traditional software development lifecycle?",
+        "options": [
+          {"id": 1, "text": "It eliminates the need for testing entirely"},
+          {"id": 2, "text": "It shifts focus from manual syntax typing to high-level system design and logic verification"},
+          {"id": 3, "text": "It prevents developers from ever looking at the source code"},
+          {"id": 4, "text": "It requires all code to be written on mobile devices"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 8,
+        "text": "What does MCP stand for in the context of modern agentic workflows?",
+        "options": [
+          {"id": 1, "text": "Multi-Core Processing"},
+          {"id": 2, "text": "Model Context Protocol"},
+          {"id": 3, "text": "Master Control Program"},
+          {"id": 4, "text": "Machine Code Parser"}
+        ],
+        "correct_option_id": 2
+      },
+      {
+        "id": 9,
+        "text": "Why is 'context' considered the most important asset in vibe coding?",
+        "options": [
+          {"id": 1, "text": "Because LLMs need relevant files and instructions to generate accurate, project-specific code"},
+          {"id": 2, "text": "Because context determines the color theme of the IDE"},
+          {"id": 3, "text": "Because it speeds up the hardware compilation time"},
+          {"id": 4, "text": "Because it reduces the internet bandwidth used by the LLM"}
+        ],
+        "correct_option_id": 1
+      },
+      {
+        "id": 10,
+        "text": "What is a major pitfall to avoid when vibe coding?",
+        "options": [
+          {"id": 1, "text": "Using too many AI credits"},
+          {"id": 2, "text": "Blindly accepting generated code without reviewing or understanding the logic"},
+          {"id": 3, "text": "Writing descriptive prompt instructions"},
+          {"id": 4, "text": "Using version control (like Git)"}
+        ],
+        "correct_option_id": 2
+      }
+    ]
+  }
+}
