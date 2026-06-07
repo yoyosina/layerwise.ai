@@ -15,3 +15,6 @@ langfuse
 PyMuPDF
 requests
 ollama
+google-auth
+PyJWT
+aiosqlite
