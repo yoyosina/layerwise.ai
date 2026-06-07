@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Specifically allow Generative AI / LLM bots for AEO (Answer Engine Optimization)
+User-agent: Google-Extended
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://layerwise-ai.vercel.app/sitemap.xml
