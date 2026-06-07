@@ -1,0 +1,1005 @@
+{
+    "modules": [
+        {
+            "id": 1,
+            "title": "Foundations of Vibe Coding, MCP, and Core Agent Setup",
+            "order": 1,
+            "tasks": [
+                {
+                    "id": 1,
+                    "title": "Day 1: Vibe Coding\nCore\nConcepts",
+                    "day": 1,
+                    "resource_link": "https://www.youtube.com/watch?v=oLmHdymHHg0"
+                },
+                {
+                    "id": 2,
+                    "title": "Day 2: Cursor Setup\n& AI Config",
+                    "day": 2,
+                    "resource_link": "https://www.reddit.com/r/vibecoding/comments/1obnmbx/2_hour_complete_cursor_101_video_on_how_to_build/"
+                },
+                {
+                    "id": 3,
+                    "title": "Day 3: Cursor\nAgentic\nWorkflow",
+                    "day": 3,
+                    "resource_link": "https://www.reddit.com/r/vibecoding/comments/1obnmbx/2_hour_complete_cursor_101_video_on_how_to_build/"
+                },
+                {
+                    "id": 4,
+                    "title": "Day 4: Claude Code\nTerminal\nSetup",
+                    "day": 4,
+                    "resource_link": "https://dev.to/onsen/claude-code-unpacked-a-visual-guide-3boa"
+                },
+                {
+                    "id": 5,
+                    "title": "Day 5: Context\nConfiguration",
+                    "day": 5,
+                    "resource_link": "https://code.claude.com/docs/en/best-practices"
+                },
+                {
+                    "id": 6,
+                    "title": "Day 6: Context\nEngineering\nPrinciples",
+                    "day": 6,
+                    "resource_link": "https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html"
+                },
+                {
+                    "id": 7,
+                    "title": "Day 7: Claude\nDesktop\nIntegrations",
+                    "day": 7,
+                    "resource_link": "https://www.youtube.com/watch?v=WSPChlfxJyA"
+                },
+                {
+                    "id": 8,
+                    "title": "Day 8: Model\nContext\nProtocol Intro",
+                    "day": 8,
+                    "resource_link": "https://www.youtube.com/watch?v=ttPU0RLOAeI"
+                },
+                {
+                    "id": 9,
+                    "title": "Day 9: MCP\nFundamentals\n& SDK",
+                    "day": 9,
+                    "resource_link": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+                },
+                {
+                    "id": 10,
+                    "title": "Day 10: Building MCP\nServers\n(Python)",
+                    "day": 10,
+                    "resource_link": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+                },
+                {
+                    "id": 11,
+                    "title": "Day 11: Custom\nServer\nDeployment",
+                    "day": 11
+                },
+                {
+                    "id": 12,
+                    "title": "Day 12: Database Tool\nIntegrations",
+                    "day": 12
+                },
+                {
+                    "id": 13,
+                    "title": "Day 13: MCP Client\nDeployments",
+                    "day": 13,
+                    "resource_link": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+                },
+                {
+                    "id": 14,
+                    "title": "Day 14: Advanced\nMCP\nImplementatio\nn",
+                    "day": 14,
+                    "resource_link": "https://anthropic.skilljar.com/introduction-to-model-context-protocol"
+                },
+                {
+                    "id": 15,
+                    "title": "Day 15: MCP Apps &\nCustom UIs",
+                    "day": 15,
+                    "resource_link": "https://www.youtube.com/watch?v=BH4erTRbRQk"
+                },
+                {
+                    "id": 16,
+                    "title": "Day 16: Vector\nEmbeddings\n& Search",
+                    "day": 16,
+                    "resource_link": "https://learn.deeplearning.ai/courses/vector-databases-embeddings-applications"
+                },
+                {
+                    "id": 17,
+                    "title": "Day 17: Approximate\nNearest\nNeighbors",
+                    "day": 17,
+                    "resource_link": "https://learn.deeplearning.ai/courses/vector-databases-embeddings-applications"
+                },
+                {
+                    "id": 18,
+                    "title": "Day 18: RAG\nIntegration\nPatterns",
+                    "day": 18,
+                    "resource_link": "https://learn.deeplearning.ai/courses/building-applications-vector-databases"
+                },
+                {
+                    "id": 19,
+                    "title": "Day 19: Hybrid &\nMultimodal\nSearch",
+                    "day": 19,
+                    "resource_link": "https://learn.deeplearning.ai/courses/building-applications-vector-databases"
+                },
+                {
+                    "id": 20,
+                    "title": "Day 20: Advanced\nQuery\nOptimization",
+                    "day": 20,
+                    "resource_link": "https://learn.deeplearning.ai/courses/advanced-retrieval-for-ai"
+                },
+                {
+                    "id": 21,
+                    "title": "Day 21: Reranking\nSearch\nOutputs",
+                    "day": 21,
+                    "resource_link": "https://learn.deeplearning.ai/courses/advanced-retrieval-for-ai"
+                },
+                {
+                    "id": 22,
+                    "title": "Day 22: RAG\nEvaluation\nFrameworks",
+                    "day": 22,
+                    "resource_link": "https://www.deeplearning.ai/courses/building-evaluating-advanced-rag"
+                },
+                {
+                    "id": 23,
+                    "title": "Day 23: Multi-Agent\nSystems\n(CrewAI)",
+                    "day": 23,
+                    "resource_link": "https://www.deeplearning.ai/courses/multi-ai-agent-systems-with-crewai"
+                },
+                {
+                    "id": 24,
+                    "title": "Day 24: Complex\nBusiness\nWorkflows",
+                    "day": 24,
+                    "resource_link": "https://www.deeplearning.ai/courses/multi-ai-agent-systems-with-crewai"
+                },
+                {
+                    "id": 25,
+                    "title": "Day 25: Stateful\nAgents in\nLangGraph",
+                    "day": 25,
+                    "resource_link": "https://www.deeplearning.ai/courses/ai-agents-in-langgraph"
+                },
+                {
+                    "id": 26,
+                    "title": "Day 26: Human-in-the-\nLoop\nOrchestration",
+                    "day": 26,
+                    "resource_link": "https://www.deeplearning.ai/courses/ai-agents-in-langgraph"
+                },
+                {
+                    "id": 27,
+                    "title": "Day 27: Observability\n& Tracing",
+                    "day": 27,
+                    "resource_link": "https://langfuse.com/guides/cookbook/example_langgraph_agents"
+                },
+                {
+                    "id": 28,
+                    "title": "Day 28: Component-L\nevel\nEvaluation",
+                    "day": 28,
+                    "resource_link": "https://www.deeplearning.ai/courses/evaluating-ai-agents"
+                },
+                {
+                    "id": 29,
+                    "title": "Day 29: Trajectory &\nCost\nOptimization",
+                    "day": 29,
+                    "resource_link": "https://www.deeplearning.ai/courses/evaluating-ai-agents"
+                },
+                {
+                    "id": 30,
+                    "title": "Day 30: CI/CD Evals &\nAuto Testing",
+                    "day": 30,
+                    "resource_link": "https://www.digitalapplied.com/blog/ai-agent-eval-frameworks-testing-guide-2026"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "The Elite Coding Gate \u2014 Data Structures, Algorithms",
+            "order": 2,
+            "tasks": [
+                {
+                    "id": 31,
+                    "title": "Day 31: Python\nFundamentals:\nIterators &\nGenerators",
+                    "day": 31
+                },
+                {
+                    "id": 32,
+                    "title": "Day 32: Advanced\nPython:\nDecorators &\nClosures",
+                    "day": 32
+                },
+                {
+                    "id": 33,
+                    "title": "Day 33: Python\nMemory\nManagement &\nObject Layout",
+                    "day": 33,
+                    "resource_link": "https://www.youtube.com/watch?v=arxWaw-E660"
+                },
+                {
+                    "id": 34,
+                    "title": "Day 34: Asynchronous\nConcurrency\nwith Asyncio",
+                    "day": 34,
+                    "resource_link": "https://www.youtube.com/watch?v=28A_F6SIn7E"
+                },
+                {
+                    "id": 35,
+                    "title": "Day 35: Algorithmic\nComplexity:\nBig-O\nSpace/Time",
+                    "day": 35
+                },
+                {
+                    "id": 36,
+                    "title": "Day 36: Dynamic\nArrays & List\nOptimization",
+                    "day": 36
+                },
+                {
+                    "id": 37,
+                    "title": "Day 37: Two-Pointer\nArray Methods",
+                    "day": 37
+                },
+                {
+                    "id": 38,
+                    "title": "Day 38: Sliding Window\nData Patterns",
+                    "day": 38
+                },
+                {
+                    "id": 39,
+                    "title": "Day 39: Hash Maps,\nTables, &\nCollision\nHandling",
+                    "day": 39
+                },
+                {
+                    "id": 40,
+                    "title": "Day 40: Stacks,\nQueues &\nState Storing",
+                    "day": 40,
+                    "resource_link": "https://www.youtube.com/watch?v=WTzjT9JDgYg"
+                },
+                {
+                    "id": 41,
+                    "title": "Day 41: Singly &\nDoubly Linked\nLists",
+                    "day": 41
+                },
+                {
+                    "id": 42,
+                    "title": "Day 42: Binary Search\nCore\nMechanics",
+                    "day": 42
+                },
+                {
+                    "id": 43,
+                    "title": "Day 43: Advanced\nBinary Search\nSplitting",
+                    "day": 43
+                },
+                {
+                    "id": 44,
+                    "title": "Day 44: Recursion &\nBacktracking\nAlgorithms",
+                    "day": 44
+                },
+                {
+                    "id": 45,
+                    "title": "Day 45: Tree\nTraversals:\nBFS & DFS on\nTree Nodes",
+                    "day": 45
+                },
+                {
+                    "id": 46,
+                    "title": "Day 46: Binary Search\nTree Properties",
+                    "day": 46
+                },
+                {
+                    "id": 47,
+                    "title": "Day 47: Graph\nStructures &\nBFS Traversal",
+                    "day": 47,
+                    "resource_link": "https://www.youtube.com/watch?v=mQeF6b08hMc"
+                },
+                {
+                    "id": 48,
+                    "title": "Day 48: Graph Cycles\n& Topological\nSorting",
+                    "day": 48,
+                    "resource_link": "https://www.youtube.com/watch?v=EgI5nU9etnU"
+                },
+                {
+                    "id": 49,
+                    "title": "Day 49: Shortest Paths\n& Dijkstra's\nAlgorithm",
+                    "day": 49,
+                    "resource_link": "https://www.youtube.com/watch?v=EaphyqKU4PQ"
+                },
+                {
+                    "id": 50,
+                    "title": "Day 50: Trie (Prefix\nTree)\nFoundations",
+                    "day": 50,
+                    "resource_link": "https://www.youtube.com/watch?v=oobqoCJl500"
+                },
+                {
+                    "id": 51,
+                    "title": "Day 51: Binary Heaps &\nPriority Queues",
+                    "day": 51,
+                    "resource_link": "https://www.youtube.com/watch?v=XEmy13g1QNg"
+                },
+                {
+                    "id": 52,
+                    "title": "Day 52: Dynamic\nProgramming:\nMemoization",
+                    "day": 52
+                },
+                {
+                    "id": 53,
+                    "title": "Day 53: Dynamic\nProgramming:\nTabulation &\nSequences",
+                    "day": 53
+                },
+                {
+                    "id": 54,
+                    "title": "Day 54: Sorting\nAlgorithms:\nQuick vs Merge\nSort",
+                    "day": 54
+                },
+                {
+                    "id": 55,
+                    "title": "Day 55: Core Interview\nChallenge:\nTwo-Sum",
+                    "day": 55
+                },
+                {
+                    "id": 56,
+                    "title": "Day 56: Core Interview\nChallenge:\nThree-Sum",
+                    "day": 56
+                },
+                {
+                    "id": 57,
+                    "title": "Day 57: Systems\nInterview Prep:\nLRU Cache",
+                    "day": 57
+                },
+                {
+                    "id": 58,
+                    "title": "Day 58: Optimization\nLogic:\nKnapsack\nProblem",
+                    "day": 58
+                },
+                {
+                    "id": 59,
+                    "title": "Day 59: Core Loop\nDetection",
+                    "day": 59
+                },
+                {
+                    "id": 60,
+                    "title": "Day 60: Mock Systems\nLive Coding\nAssessment",
+                    "day": 60
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "High-Performance GenAI System Design & Scalability",
+            "order": 3,
+            "tasks": [
+                {
+                    "id": 61,
+                    "title": "Day 61: Principles of\nGenAI System\nDesign",
+                    "day": 61
+                },
+                {
+                    "id": 62,
+                    "title": "Day 62: Server-Sent\nEvents (SSE)\n& Stream\nIngestion",
+                    "day": 62
+                },
+                {
+                    "id": 63,
+                    "title": "Day 63: Open-Source\nServing: vLLM\n(Part I)",
+                    "day": 63
+                },
+                {
+                    "id": 64,
+                    "title": "Day 64: Open-Source\nServing: vLLM\n(Part II)",
+                    "day": 64
+                },
+                {
+                    "id": 65,
+                    "title": "Day 65: Model\nCompression:\nQuantization &\nPruning",
+                    "day": 65,
+                    "resource_link": "https://www.youtube.com/watch?v=mQeF6b08hMc"
+                },
+                {
+                    "id": 66,
+                    "title": "Day 66: Latency\nReducers:\nRedis\nSemantic\nCaching",
+                    "day": 66,
+                    "resource_link": "https://www.youtube.com/watch?v=IuZk3j-D_C0"
+                },
+                {
+                    "id": 67,
+                    "title": "Day 67: Gateway\nPatterns for\nModel APIs",
+                    "day": 67,
+                    "resource_link": "https://www.youtube.com/watch?v=EgI5nU9etnU"
+                },
+                {
+                    "id": 68,
+                    "title": "Day 68: Fault\nTolerance:\nDynamic Load\nBalancing",
+                    "day": 68,
+                    "resource_link": "https://www.youtube.com/watch?v=s4DPM8ct1EH"
+                },
+                {
+                    "id": 69,
+                    "title": "Day 69: Client Policies:\nThrottling &\nRate Limiting",
+                    "day": 69,
+                    "resource_link": "https://www.youtube.com/watch?v=0hCH6lGv2uA"
+                },
+                {
+                    "id": 70,
+                    "title": "Day 70: Token\nEconomics &\nBudget\nModeling",
+                    "day": 70,
+                    "resource_link": "https://www.youtube.com/watch?v=zjkBMFhNj_g"
+                },
+                {
+                    "id": 71,
+                    "title": "Day 71: Graceful\nDegradation &\nFallbacks",
+                    "day": 71
+                },
+                {
+                    "id": 72,
+                    "title": "Day 72: Dynamic\nThread\nPersistence",
+                    "day": 72
+                },
+                {
+                    "id": 73,
+                    "title": "Day 73: Validation\nChecks &\nApproval\nCheckpoints",
+                    "day": 73
+                },
+                {
+                    "id": 74,
+                    "title": "Day 74: High-Dimensio\nnal Search\n(ANN HNSW\nIndexing)",
+                    "day": 74,
+                    "resource_link": "https://www.youtube.com/watch?v=0hCH6lGv2uA"
+                },
+                {
+                    "id": 75,
+                    "title": "Day 75: Vector\nClustering &\nMemory\nOptimization",
+                    "day": 75,
+                    "resource_link": "https://www.youtube.com/watch?v=V6mKVRU1evU"
+                },
+                {
+                    "id": 76,
+                    "title": "Day 76: Multimodal\nContext\nPipelines",
+                    "day": 76,
+                    "resource_link": "https://learn.deeplearning.ai/"
+                },
+                {
+                    "id": 77,
+                    "title": "Day 77: Distributed\nLayouts for\nReal-Time\nChat",
+                    "day": 77,
+                    "resource_link": "https://www.youtube.com/watch?v=v3Fr2JR47KA"
+                },
+                {
+                    "id": 78,
+                    "title": "Day 78: Asynchronous\nBackground\nProcessing",
+                    "day": 78,
+                    "resource_link": "https://www.youtube.com/watch?v=ttPU0RLOAeI"
+                },
+                {
+                    "id": 79,
+                    "title": "Day 79: Centralized\nPrompt\nManagement",
+                    "day": 79,
+                    "resource_link": "https://www.youtube.com/watch?v=-8k9lGpGQ6g"
+                },
+                {
+                    "id": 80,
+                    "title": "Day 80: OWASP Top\n10: AI\nValidation\nFilters",
+                    "day": 80,
+                    "resource_link": "https://www.youtube.com/watch?v=0hCH6lGv2uA"
+                },
+                {
+                    "id": 81,
+                    "title": "Day 81: Observability:\nTool Span\nLogger",
+                    "day": 81,
+                    "resource_link": "https://www.deeplearning.ai/courses/building-and-evaluating-data-agents"
+                },
+                {
+                    "id": 82,
+                    "title": "Day 82: Distributed\nTracing:\nOpenTelemetry",
+                    "day": 82,
+                    "resource_link": "https://www.youtube.com/watch?v=bD05uGo_sVI"
+                },
+                {
+                    "id": 83,
+                    "title": "Day 83: Multi-Region\nActive\nFailovers",
+                    "day": 83,
+                    "resource_link": "https://www.youtube.com/watch?v=V6mKVRU1evU"
+                },
+                {
+                    "id": 84,
+                    "title": "Day 84: Prompt\nSegment\nCaching\nMechanics",
+                    "day": 84,
+                    "resource_link": "https://www.youtube.com/watch?v=0hCH6lGv2uA"
+                },
+                {
+                    "id": 85,
+                    "title": "Day 85: Sandboxed\nExecution\nEnvironments",
+                    "day": 85,
+                    "resource_link": "https://www.youtube.com/watch?v=EgI5nU9etnU"
+                },
+                {
+                    "id": 86,
+                    "title": "Day 86: Auto-Scaling\nModel Servers",
+                    "day": 86,
+                    "resource_link": "https://www.youtube.com/watch?v=s4DPM8ct1EH"
+                },
+                {
+                    "id": 87,
+                    "title": "Day 87: Semantic\nSearch\nCaching\nEvictions",
+                    "day": 87,
+                    "resource_link": "https://www.youtube.com/watch?v=0hCH6lGv2uA"
+                },
+                {
+                    "id": 88,
+                    "title": "Day 88: Component-Le\nvel Multi-Turn\nEvaluations",
+                    "day": 88,
+                    "resource_link": "https://www.deeplearning.ai/courses/evaluating-ai-agents"
+                },
+                {
+                    "id": 89,
+                    "title": "Day 89: System\nProfiling and\nPerformance\nTuning",
+                    "day": 89,
+                    "resource_link": "https://www.youtube.com/watch?v=bD05uGo_sVI"
+                },
+                {
+                    "id": 90,
+                    "title": "Day 90: Capstone\nSystem\nArchitecture\nDesign",
+                    "day": 90,
+                    "resource_link": "https://www.youtube.com/watch?v=A2WpDqIOf5A"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Enterprise Data Integration, Advanced RAG, and Vector DBs",
+            "order": 4,
+            "tasks": [
+                {
+                    "id": 91,
+                    "title": "Day 91: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 91
+                },
+                {
+                    "id": 92,
+                    "title": "Day 92: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 92
+                },
+                {
+                    "id": 93,
+                    "title": "Day 93: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 93
+                },
+                {
+                    "id": 94,
+                    "title": "Day 94: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 94
+                },
+                {
+                    "id": 95,
+                    "title": "Day 95: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 95
+                },
+                {
+                    "id": 96,
+                    "title": "Day 96: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 96
+                },
+                {
+                    "id": 97,
+                    "title": "Day 97: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 97
+                },
+                {
+                    "id": 98,
+                    "title": "Day 98: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 98
+                },
+                {
+                    "id": 99,
+                    "title": "Day 99: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 99
+                },
+                {
+                    "id": 100,
+                    "title": "Day 100: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 100
+                },
+                {
+                    "id": 101,
+                    "title": "Day 101: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 101
+                },
+                {
+                    "id": 102,
+                    "title": "Day 102: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 102
+                },
+                {
+                    "id": 103,
+                    "title": "Day 103: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 103
+                },
+                {
+                    "id": 104,
+                    "title": "Day 104: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 104
+                },
+                {
+                    "id": 105,
+                    "title": "Day 105: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 105
+                },
+                {
+                    "id": 106,
+                    "title": "Day 106: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 106
+                },
+                {
+                    "id": 107,
+                    "title": "Day 107: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 107
+                },
+                {
+                    "id": 108,
+                    "title": "Day 108: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 108
+                },
+                {
+                    "id": 109,
+                    "title": "Day 109: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 109
+                },
+                {
+                    "id": 110,
+                    "title": "Day 110: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 110
+                },
+                {
+                    "id": 111,
+                    "title": "Day 111: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 111
+                },
+                {
+                    "id": 112,
+                    "title": "Day 112: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 112
+                },
+                {
+                    "id": 113,
+                    "title": "Day 113: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 113
+                },
+                {
+                    "id": 114,
+                    "title": "Day 114: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 114
+                },
+                {
+                    "id": 115,
+                    "title": "Day 115: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 115
+                },
+                {
+                    "id": 116,
+                    "title": "Day 116: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 116
+                },
+                {
+                    "id": 117,
+                    "title": "Day 117: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 117
+                },
+                {
+                    "id": 118,
+                    "title": "Day 118: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 118
+                },
+                {
+                    "id": 119,
+                    "title": "Day 119: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 119
+                },
+                {
+                    "id": 120,
+                    "title": "Day 120: Enterprise Data Integration, Advanced RAG, and Vector DBs Continuation",
+                    "day": 120
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Advanced LLMOps, Security Guardrails, and Evaluation",
+            "order": 5,
+            "tasks": [
+                {
+                    "id": 121,
+                    "title": "Day 121: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 121
+                },
+                {
+                    "id": 122,
+                    "title": "Day 122: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 122
+                },
+                {
+                    "id": 123,
+                    "title": "Day 123: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 123
+                },
+                {
+                    "id": 124,
+                    "title": "Day 124: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 124
+                },
+                {
+                    "id": 125,
+                    "title": "Day 125: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 125
+                },
+                {
+                    "id": 126,
+                    "title": "Day 126: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 126
+                },
+                {
+                    "id": 127,
+                    "title": "Day 127: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 127
+                },
+                {
+                    "id": 128,
+                    "title": "Day 128: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 128
+                },
+                {
+                    "id": 129,
+                    "title": "Day 129: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 129
+                },
+                {
+                    "id": 130,
+                    "title": "Day 130: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 130
+                },
+                {
+                    "id": 131,
+                    "title": "Day 131: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 131
+                },
+                {
+                    "id": 132,
+                    "title": "Day 132: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 132
+                },
+                {
+                    "id": 133,
+                    "title": "Day 133: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 133
+                },
+                {
+                    "id": 134,
+                    "title": "Day 134: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 134
+                },
+                {
+                    "id": 135,
+                    "title": "Day 135: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 135
+                },
+                {
+                    "id": 136,
+                    "title": "Day 136: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 136
+                },
+                {
+                    "id": 137,
+                    "title": "Day 137: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 137
+                },
+                {
+                    "id": 138,
+                    "title": "Day 138: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 138
+                },
+                {
+                    "id": 139,
+                    "title": "Day 139: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 139
+                },
+                {
+                    "id": 140,
+                    "title": "Day 140: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 140
+                },
+                {
+                    "id": 141,
+                    "title": "Day 141: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 141
+                },
+                {
+                    "id": 142,
+                    "title": "Day 142: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 142
+                },
+                {
+                    "id": 143,
+                    "title": "Day 143: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 143
+                },
+                {
+                    "id": 144,
+                    "title": "Day 144: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 144
+                },
+                {
+                    "id": 145,
+                    "title": "Day 145: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 145
+                },
+                {
+                    "id": 146,
+                    "title": "Day 146: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 146
+                },
+                {
+                    "id": 147,
+                    "title": "Day 147: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 147
+                },
+                {
+                    "id": 148,
+                    "title": "Day 148: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 148
+                },
+                {
+                    "id": 149,
+                    "title": "Day 149: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 149
+                },
+                {
+                    "id": 150,
+                    "title": "Day 150: Advanced LLMOps, Security Guardrails, and Evaluation Continuation",
+                    "day": 150
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Forward-Deployed Solutions Engineering, GTM & Delivery",
+            "order": 6,
+            "tasks": [
+                {
+                    "id": 151,
+                    "title": "Day 151: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 151
+                },
+                {
+                    "id": 152,
+                    "title": "Day 152: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 152
+                },
+                {
+                    "id": 153,
+                    "title": "Day 153: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 153
+                },
+                {
+                    "id": 154,
+                    "title": "Day 154: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 154
+                },
+                {
+                    "id": 155,
+                    "title": "Day 155: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 155
+                },
+                {
+                    "id": 156,
+                    "title": "Day 156: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 156
+                },
+                {
+                    "id": 157,
+                    "title": "Day 157: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 157
+                },
+                {
+                    "id": 158,
+                    "title": "Day 158: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 158
+                },
+                {
+                    "id": 159,
+                    "title": "Day 159: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 159
+                },
+                {
+                    "id": 160,
+                    "title": "Day 160: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 160
+                },
+                {
+                    "id": 161,
+                    "title": "Day 161: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 161
+                },
+                {
+                    "id": 162,
+                    "title": "Day 162: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 162
+                },
+                {
+                    "id": 163,
+                    "title": "Day 163: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 163
+                },
+                {
+                    "id": 164,
+                    "title": "Day 164: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 164
+                },
+                {
+                    "id": 165,
+                    "title": "Day 165: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 165
+                },
+                {
+                    "id": 166,
+                    "title": "Day 166: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 166
+                },
+                {
+                    "id": 167,
+                    "title": "Day 167: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 167
+                },
+                {
+                    "id": 168,
+                    "title": "Day 168: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 168
+                },
+                {
+                    "id": 169,
+                    "title": "Day 169: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 169
+                },
+                {
+                    "id": 170,
+                    "title": "Day 170: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 170
+                },
+                {
+                    "id": 171,
+                    "title": "Day 171: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 171
+                },
+                {
+                    "id": 172,
+                    "title": "Day 172: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 172
+                },
+                {
+                    "id": 173,
+                    "title": "Day 173: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 173
+                },
+                {
+                    "id": 174,
+                    "title": "Day 174: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 174
+                },
+                {
+                    "id": 175,
+                    "title": "Day 175: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 175
+                },
+                {
+                    "id": 176,
+                    "title": "Day 176: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 176
+                },
+                {
+                    "id": 177,
+                    "title": "Day 177: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 177
+                },
+                {
+                    "id": 178,
+                    "title": "Day 178: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 178
+                },
+                {
+                    "id": 179,
+                    "title": "Day 179: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 179
+                },
+                {
+                    "id": 180,
+                    "title": "Day 180: Forward-Deployed Solutions Engineering, GTM & Delivery Continuation",
+                    "day": 180
+                }
+            ]
+        }
+    ]
+}

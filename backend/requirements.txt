@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+asyncpg
+psycopg2-binary
+redis
+celery
+qdrant-client
+firebase-admin
+langchain
+langgraph
+langfuse
+PyMuPDF
+requests
+ollama
