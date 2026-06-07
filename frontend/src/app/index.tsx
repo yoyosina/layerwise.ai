@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
@@ -83,17 +83,39 @@ export default function LoginScreen() {
         <Text style={styles.subtitle}>Structured AI Learning</Text>
       </View>
       
-      <TouchableOpacity 
-        style={styles.button} 
-        onPress={handleLogin}
-        disabled={loading}
-      >
-        {loading ? (
-          <ActivityIndicator color="#208AEF" />
-        ) : (
-          <Text style={styles.buttonText}>LOGIN WITH GOOGLE</Text>
-        )}
-      </TouchableOpacity>
+      {Platform.OS === 'web' ? (
+        <button 
+          style={{
+            backgroundColor: '#fff',
+            padding: '15px 40px',
+            borderRadius: '25px',
+            border: 'none',
+            boxShadow: '0 4px 5px rgba(0,0,0,0.2)',
+            minWidth: '250px',
+            cursor: loading ? 'default' : 'pointer',
+            opacity: loading ? 0.7 : 1,
+            color: '#208AEF',
+            fontWeight: 'bold',
+            fontSize: '16px',
+          }}
+          onClick={handleLogin}
+          disabled={loading}
+        >
+          {loading ? 'LOADING...' : 'LOGIN WITH GOOGLE'}
+        </button>
+      ) : (
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={handleLogin}
+          disabled={loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#208AEF" />
+          ) : (
+            <Text style={styles.buttonText}>LOGIN WITH GOOGLE</Text>
+          )}
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
