@@ -12,6 +12,7 @@ export default function LoginScreen() {
   const [loading, setLoading] = useState(false);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
+    clientId: '317193772618-b7bdlts6kj58jrku9lpc1kf903j7duan.apps.googleusercontent.com',
     webClientId: '317193772618-b7bdlts6kj58jrku9lpc1kf903j7duan.apps.googleusercontent.com',
     redirectUri: 'https://layerwise-ai.vercel.app',
   });
@@ -60,8 +61,16 @@ export default function LoginScreen() {
     }
   };
 
-  const handleLogin = () => {
-    promptAsync();
+  const handleLogin = async () => {
+    try {
+      if (!request) {
+        alert("Google Auth is still initializing or blocked. Please refresh the page or try another browser.");
+        return;
+      }
+      await promptAsync();
+    } catch (e: any) {
+      alert("Login Error: " + e.message);
+    }
   };
 
   return (
