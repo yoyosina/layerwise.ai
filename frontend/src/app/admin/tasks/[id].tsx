@@ -25,7 +25,7 @@ export default function AdminTaskDetailsScreen() {
   const [isEditingAdd, setIsEditingAdd] = useState(false);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8005/api/curriculum/modules')
+    fetch('https://layerwise-ai.onrender.com/api/curriculum/modules')
       .then(res => res.json())
       .then(data => {
         let found = false;

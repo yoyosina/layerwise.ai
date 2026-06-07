@@ -14,7 +14,7 @@ export default function StudentQuizScreen() {
 
   useEffect(() => {
     // Fetch mock quiz data from backend
-    fetch(`http://127.0.0.1:8005/api/curriculum/tasks/${taskId}/quiz`)
+    fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz`)
       .then(res => res.json())
       .then(data => setQuestions(data.questions))
       .catch(err => console.error(err));
@@ -39,7 +39,7 @@ export default function StudentQuizScreen() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const res = await fetch(`http://127.0.0.1:8005/api/curriculum/tasks/${taskId}/quiz/evaluate`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz/evaluate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ answers })

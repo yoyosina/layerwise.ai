@@ -25,8 +25,8 @@ export default function StudentLessonScreen() {
         const token = await AsyncStorage.getItem('user_token');
         const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
         const [currRes, progRes] = await Promise.all([
-          fetch('http://127.0.0.1:8005/api/curriculum/modules', { headers }),
-          fetch(`http://127.0.0.1:8005/api/student/video-progress/${id}`, { headers })
+          fetch('https://layerwise-ai.onrender.com/api/curriculum/modules', { headers }),
+          fetch(`https://layerwise-ai.onrender.com/api/student/video-progress/${id}`, { headers })
         ]);
         const currData = await currRes.json();
         const progData = await progRes.json();
@@ -63,7 +63,7 @@ export default function StudentLessonScreen() {
           const dur = duration || 1000;
           const token = await AsyncStorage.getItem('user_token');
           const headers = token ? { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } : { 'Content-Type': 'application/json' };
-          fetch('http://127.0.0.1:8005/api/student/video-progress', {
+          fetch('https://layerwise-ai.onrender.com/api/student/video-progress', {
             method: 'POST',
             headers,
             body: JSON.stringify({
