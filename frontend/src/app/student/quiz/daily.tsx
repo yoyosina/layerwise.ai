@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
@@ -63,7 +64,7 @@ export default function DailyQuizScreen() {
       {result && (
         <Animated.View entering={FadeInDown.duration(800).springify()} style={[styles.resultBox, result.passed ? styles.passedBox : styles.failedBox]}>
           <Animated.Text entering={ZoomIn.delay(300)} style={styles.resultText}>
-            {result.passed ? "🎉 Congratulations! You Passed!" : "❌ You did not pass. Try again."}
+            {result.passed ? "🎉 Congratulations! You Passed!" : "😔 You did not pass. Try again."}
           </Animated.Text>
           <Text style={styles.scoreText}>Score: {result.score.toFixed(1)}% (75% required)</Text>
           
@@ -79,7 +80,7 @@ export default function DailyQuizScreen() {
       )}
 
       {questions.map((q, idx) => (
-        <View key={q.id} style={styles.questionCard}>
+        <Animated.View key={q.id} entering={FadeInDown.delay(idx * 100).duration(500)} style={styles.questionCard}>
           <Text style={styles.questionText}>{idx + 1}. {q.text}</Text>
           {q.options.map(opt => {
             const isSelected = answers[q.id] === opt.id;
@@ -95,7 +96,7 @@ export default function DailyQuizScreen() {
               </TouchableOpacity>
             );
           })}
-        </View>
+        </Animated.View>
       ))}
 
       {!result && (

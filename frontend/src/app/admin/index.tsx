@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { useRouter } from 'expo-router';

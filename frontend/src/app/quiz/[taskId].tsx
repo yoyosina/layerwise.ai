@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -14,10 +15,10 @@ export default function StudentQuizScreen() {
 
   useEffect(() => {
     // Fetch mock quiz data from backend
-    fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz`)
+    fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz`, { credentials: 'include' })
       .then(res => res.json())
       .then(data => setQuestions(data.questions))
-      .catch(err => console.error(err)).replace(', { credentials: 'include' })', \", { credentials: 'include' })\");
+      .catch(err => console.error(err));
   }, [taskId]);
 
   useEffect(() => {

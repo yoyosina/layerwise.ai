@@ -30,7 +30,7 @@ export default function FloatingAITutor() {
         <View style={styles.header}>
           <Text style={styles.title}>🤖 AI Tutor</Text>
           <TouchableOpacity onPress={togglePanel}>
-            <Text style={styles.closeBtn}>✕</Text>
+            <Text style={styles.closeBtn}>✖</Text>
           </TouchableOpacity>
         </View>
         <ScrollView style={styles.scroll}>
