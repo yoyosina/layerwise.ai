@@ -16,7 +16,7 @@ Our platform leverages a modern, robust, and scalable technology stack to ensure
 ### Backend
 * **Framework:** Python FastAPI
 * **Language:** Python 3.10+
-* **Database:** SQLite
+* **Database:** PostgreSQL
 
 ---
 
@@ -49,7 +49,7 @@ LayerWise provides a rich set of features divided into logical pages:
 - Node.js (v18+)
 - Python (v3.10+)
 
-### Backend Setup (FastAPI + SQLite)
+### Backend Setup (FastAPI + PostgreSQL)
 1. Navigate to the backend directory (if separated) or root:
    ```bash
    cd backend
@@ -92,18 +92,18 @@ LayerWise provides a rich set of features divided into logical pages:
 ## 🚀 Deployment Instructions
 
 ### Deploying the Backend (Render)
-Render is an excellent choice for deploying Python FastAPI applications with SQLite.
-1. Create a new **Web Service** on [Render](https://render.com/).
-2. Connect your GitHub repository.
-3. Set the Build Command:
+Render is an excellent choice for deploying Python FastAPI applications with PostgreSQL.
+1. Create a new **PostgreSQL Database** on [Render](https://render.com/).
+2. Create a new **Web Service** on Render and connect your GitHub repository.
+3. Set the `DATABASE_URL` environment variable to your internal Render PostgreSQL URL.
+4. Set the Build Command:
    ```bash
    pip install -r requirements.txt
    ```
-4. Set the Start Command:
+5. Set the Start Command:
    ```bash
    uvicorn main:app --host 0.0.0.0 --port $PORT
    ```
-5. *(Optional)* Since SQLite is file-based, note that Render's free tier uses ephemeral file systems. For persistent data, attach a Render Disk to your Web Service and configure your database URL to point to that disk.
 
 ### Deploying the Frontend (Vercel)
 If you are exporting the Expo app for the web:
