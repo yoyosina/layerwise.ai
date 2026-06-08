@@ -184,7 +184,13 @@ export default function LearnScreen() {
       <Text style={styles.logo}>Layerwise</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
         {menuItems.map((item, index) => (
-          <TouchableOpacity key={item.name} style={[styles.menuItem, index === 0 && styles.menuItemActive]}>
+          <TouchableOpacity 
+            key={item.name} 
+            style={[styles.menuItem, index === 0 && styles.menuItemActive]}
+            onPress={() => {
+                if (item.name === 'PRACTICE') router.push('/workspace');
+            }}
+          >
             <Text style={styles.menuIconText}>{item.icon}</Text>
             <Text style={[styles.menuText, index === 0 && styles.menuTextActive]}>{item.name}</Text>
           </TouchableOpacity>
@@ -196,7 +202,13 @@ export default function LearnScreen() {
   const renderBottomTab = () => (
     <View style={styles.bottomTab}>
       {menuItems.slice(0, 5).map((item, index) => (
-        <TouchableOpacity key={item.name} style={[styles.bottomTabItem, index === 0 && styles.bottomTabItemActive]}>
+        <TouchableOpacity 
+            key={item.name} 
+            style={[styles.bottomTabItem, index === 0 && styles.bottomTabItemActive]}
+            onPress={() => {
+                if (item.name === 'PRACTICE') router.push('/workspace');
+            }}
+        >
           <Text style={styles.bottomTabIcon}>{item.icon}</Text>
         </TouchableOpacity>
       ))}

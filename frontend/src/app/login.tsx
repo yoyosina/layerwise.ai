@@ -6,8 +6,8 @@ export default function LoginScreen() {
   const router = useRouter();
 
   const handleLogin = () => {
-    // Mock login and redirect to dashboard
-    router.replace('/dashboard');
+    // Mock login and redirect to the student hub
+    router.replace('/learn');
   };
 
   return (

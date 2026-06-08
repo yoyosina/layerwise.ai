@@ -106,7 +106,7 @@ export default function DailyQuizScreen() {
           
           <TouchableOpacity 
             style={styles.actionBtn} 
-            onPress={() => result.passed ? router.push('/student/dashboard') : router.push(`/student/tasks/${dayId}`)}
+            onPress={() => result.passed ? router.push('/learn') : router.push(`/student/lesson/${dayId}`)}
           >
             <Text style={styles.actionBtnText}>
               {result.passed ? "Return to Dashboard" : "Revisit the lesson"}

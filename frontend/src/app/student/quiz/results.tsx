@@ -46,7 +46,7 @@ export default function ResultsScreen() {
 
       <TouchableOpacity 
         style={styles.actionBtn}
-        onPress={() => router.push('/student/dashboard')}
+        onPress={() => router.push('/learn')}
       >
         <Text style={styles.actionBtnText}>Return to Dashboard</Text>
       </TouchableOpacity>
