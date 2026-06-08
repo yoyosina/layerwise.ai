@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
 export default function DailyQuizScreen() {
   const { dayId } = useLocalSearchParams();
@@ -17,7 +17,7 @@ export default function DailyQuizScreen() {
       try {
         const token = await AsyncStorage.getItem('user_token');
         const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
-        const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}`, { headers });
+        const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}`, { credentials: 'include',  headers });
         const data = await res.json();
         setQuestions(data.questions || []);
       } catch (err) {
@@ -37,7 +37,7 @@ export default function DailyQuizScreen() {
   const submitQuiz = async () => {
     try {
       const token = await AsyncStorage.getItem('user_token');
-      const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}/submit`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}/submit`, { credentials: 'include', 
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -61,10 +61,10 @@ export default function DailyQuizScreen() {
       <Text style={styles.header}>Daily Quiz: Day {dayId}</Text>
       
       {result && (
-        <View style={[styles.resultBox, result.passed ? styles.passedBox : styles.failedBox]}>
-          <Text style={styles.resultText}>
+        <Animated.View entering={FadeInDown.duration(800).springify()} style={[styles.resultBox, result.passed ? styles.passedBox : styles.failedBox]}>
+          <Animated.Text entering={ZoomIn.delay(300)} style={styles.resultText}>
             {result.passed ? "🎉 Congratulations! You Passed!" : "❌ You did not pass. Try again."}
-          </Text>
+          </Animated.Text>
           <Text style={styles.scoreText}>Score: {result.score.toFixed(1)}% (75% required)</Text>
           
           <TouchableOpacity 
@@ -75,7 +75,7 @@ export default function DailyQuizScreen() {
               {result.passed ? "Return to Dashboard" : "Retake Quiz"}
             </Text>
           </TouchableOpacity>
-        </View>
+        </Animated.View>
       )}
 
       {questions.map((q, idx) => (

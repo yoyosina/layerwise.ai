@@ -20,9 +20,9 @@ export default function LearnScreen() {
         const token = await AsyncStorage.getItem('user_token');
         const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
         const [currRes, progRes, vidProgRes] = await Promise.all([
-          fetch('https://layerwise-ai.onrender.com/api/curriculum/modules', { headers }),
-          fetch('https://layerwise-ai.onrender.com/api/student/progress', { headers }),
-          fetch('https://layerwise-ai.onrender.com/api/student/video-progress-all', { headers })
+          fetch('https://layerwise-ai.onrender.com/api/curriculum/modules', { credentials: 'include',  headers }),
+          fetch('https://layerwise-ai.onrender.com/api/student/progress', { credentials: 'include',  headers }),
+          fetch('https://layerwise-ai.onrender.com/api/student/video-progress-all', { credentials: 'include',  headers })
         ]);
         const currData = await currRes.json();
         const progData = await progRes.json();

@@ -10,7 +10,7 @@ export default function AdminMetricsScreen() {
     fetch('https://layerwise-ai.onrender.com/api/admin/metrics')
       .then(res => res.json())
       .then(data => setMetrics(data))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err)).replace(', { credentials: 'include' })', \", { credentials: 'include' })\");
   }, []);
 
   return (

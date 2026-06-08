@@ -28,9 +28,9 @@ export default function AdminModulesScreen() {
   };
 
   const handleSaveNew = async () => {
-    setStatus('Saving...');
+    setStatus('Saving...').replace(', { credentials: 'include' })', \", { credentials: 'include' })\");
     try {
-      const res = await fetch('https://layerwise-ai.onrender.com/api/admin/modules', {
+      const res = await fetch('https://layerwise-ai.onrender.com/api/admin/modules', { credentials: 'include', 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -52,7 +52,7 @@ export default function AdminModulesScreen() {
 
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`https://layerwise-ai.onrender.com/api/admin/modules/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/admin/modules/${id}`, { credentials: 'include',  method: 'DELETE' });
       if (res.ok) {
         setModules(modules.filter(m => m.id !== id));
       }
@@ -63,7 +63,7 @@ export default function AdminModulesScreen() {
 
   const handleSaveEdit = async (id: number) => {
     try {
-      const res = await fetch(`https://layerwise-ai.onrender.com/api/admin/modules/${id}`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/admin/modules/${id}`, { credentials: 'include', 
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: editTitle })

@@ -55,7 +55,7 @@ export default function LoginScreen() {
       if (accessToken) payload.access_token = accessToken;
       if (idToken) payload.id_token = idToken;
 
-      const res = await fetch('https://layerwise-ai.onrender.com/api/auth/login', {
+      const res = await fetch('https://layerwise-ai.onrender.com/api/auth/login', { credentials: 'include', 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -64,7 +64,7 @@ export default function LoginScreen() {
       const data = await res.json();
       if (res.ok && data.token) {
         // Save the JWT secure token
-        await AsyncStorage.setItem('user_token', data.token);
+        if (Platform.OS !== 'web') await AsyncStorage.setItem('user_token', data.token);
         
         // Route correctly based on new user flag
         if (data.is_new_user) {

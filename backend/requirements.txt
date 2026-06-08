@@ -18,3 +18,4 @@ ollama
 google-auth
 PyJWT
 aiosqlite
+slowapi

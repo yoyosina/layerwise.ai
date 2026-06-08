@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Response
 from pydantic import BaseModel, Field
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
@@ -32,7 +32,7 @@ def create_access_token(data: dict):
     return jwt.encode(to_encode, settings.SECRET_KEY, algorithm="HS256")
 
 @router.post("/login")
-async def login(data: TokenData, db: AsyncSession = Depends(get_db)):
+async def login(data: TokenData, response: Response, db: AsyncSession = Depends(get_db)):
     try:
         email = None
         name = ""
@@ -70,10 +70,19 @@ async def login(data: TokenData, db: AsyncSession = Depends(get_db)):
             await db.refresh(user)
 
         jwt_token = create_access_token({"sub": str(user.id)})
+        
+        response.set_cookie(
+            key="access_token",
+            value=f"Bearer {jwt_token}",
+            httponly=True,
+            secure=True,
+            samesite="lax",
+            max_age=30*24*60*60
+        )
 
         return {
             "message": "User logged in successfully", 
-            "token": jwt_token,
+            "token": jwt_token, # Keep it for React Native mobile app fallback
             "is_new_user": is_new_user,
             "user": {"id": user.id, "email": user.email, "name": user.name}
         }

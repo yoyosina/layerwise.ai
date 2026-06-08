@@ -46,7 +46,7 @@ export default function AdminTaskDetailsScreen() {
           if (found) break;
         }
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err)).replace(', { credentials: 'include' })', \", { credentials: 'include' })\");
   }, [id]);
 
   const renderEditHeader = (title: string, isEditing: boolean, setEditing: (v: boolean) => void) => (

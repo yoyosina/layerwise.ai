@@ -20,7 +20,7 @@ export default function ModuleTestScreen() {
       try {
         const token = await AsyncStorage.getItem('user_token');
         const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
-        const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/module/${moduleId}`, { headers });
+        const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/module/${moduleId}`, { credentials: 'include',  headers });
         const data = await res.json();
         setQuestions(data.questions || []);
       } catch (err) {
@@ -57,7 +57,7 @@ export default function ModuleTestScreen() {
     setSubmitted(true);
     try {
       const token = await AsyncStorage.getItem('user_token');
-      const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/module/${moduleId}/submit`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/module/${moduleId}/submit`, { credentials: 'include', 
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

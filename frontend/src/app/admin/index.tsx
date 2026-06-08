@@ -10,7 +10,7 @@ export default function AdminLoginScreen() {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch('https://layerwise-ai.onrender.com/api/admin/login', {
+      const res = await fetch('https://layerwise-ai.onrender.com/api/admin/login', { credentials: 'include', 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })

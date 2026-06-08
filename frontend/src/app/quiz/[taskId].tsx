@@ -17,7 +17,7 @@ export default function StudentQuizScreen() {
     fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz`)
       .then(res => res.json())
       .then(data => setQuestions(data.questions))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err)).replace(', { credentials: 'include' })', \", { credentials: 'include' })\");
   }, [taskId]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function StudentQuizScreen() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const res = await fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz/evaluate`, {
+      const res = await fetch(`https://layerwise-ai.onrender.com/api/curriculum/tasks/${taskId}/quiz/evaluate`, { credentials: 'include', 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ answers })
