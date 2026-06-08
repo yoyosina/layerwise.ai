@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Platform, ActivityIndicator } from 'react-native';
 import { useRouter } from 'expo-router';
 import Editor from '@monaco-editor/react';
@@ -7,9 +7,9 @@ import Editor from '@monaco-editor/react';
 export default function WorkspaceScreen() {
   const router = useRouter();
   const [code, setCode] = useState('// Write your code here...\nconsole.log("Hello, Layerwise!");\n');
-  const [output, setOutput] = useState('');
-  const [feedback, setFeedback] = useState('Hi! I am your AI Tutor. Write some code and hit "Evaluate" when you are ready.');
+  const [output, setOutput] = useState('Ready.\nClick "Run Code" to compile and execute.');
   const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState('console'); // 'console' or 'agent'
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) setCode(value);
@@ -17,23 +17,24 @@ export default function WorkspaceScreen() {
 
   const handleEvaluate = async () => {
     setLoading(true);
+    setOutput('Compiling and executing...');
+    setActiveTab('console');
+    
     try {
-      const res = await fetch('https://layerwise-ai.onrender.com/api/workspace/evaluate', {
+      const res = await fetch('http://localhost:8000/api/workspace/evaluate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ code, language: 'javascript' })
+        body: JSON.stringify({ code, language: 'javascript' }) 
       });
       const data = await res.json();
       
       if (res.ok) {
-        setOutput(data.output);
-        setFeedback(data.feedback);
+        setOutput(data.output || '(No output)');
       } else {
-        setFeedback('Error: Could not connect to the evaluation server.');
+        setOutput('Error: Could not connect to the evaluation server.');
       }
     } catch (err) {
-      setFeedback('Error: Network issue.');
+      setOutput('Error: Network issue connecting to compilation engine.');
     } finally {
       setLoading(false);
     }
@@ -43,17 +44,19 @@ export default function WorkspaceScreen() {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Text style={styles.backText}>← Back to Course</Text>
-        </TouchableOpacity>
-        <Text style={styles.title}>Interactive Cloud Workspace</Text>
+        <View style={styles.headerLeft}>
+            <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+              <Text style={styles.backText}>← Back</Text>
+            </TouchableOpacity>
+            <Text style={styles.title}>Interactive Cloud Workspace</Text>
+        </View>
         <TouchableOpacity style={styles.runButton} onPress={handleEvaluate} disabled={loading}>
-          {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.runText}>▶ Evaluate Code</Text>}
+          {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.runText}>▶ Run Code</Text>}
         </TouchableOpacity>
       </View>
 
       <View style={styles.mainContent}>
-        {/* Editor Pane */}
+        {/* Editor Pane (Left) */}
         <View style={styles.editorPane}>
           {Platform.OS === 'web' ? (
             <Editor
@@ -71,22 +74,37 @@ export default function WorkspaceScreen() {
           )}
         </View>
 
-        {/* AI Tutor Panel */}
-        <View style={styles.tutorPane}>
-          <View style={styles.tutorHeader}>
-            <Text style={styles.tutorTitle}>🤖 AI Tutor</Text>
+        {/* Console / Info Pane (Right) */}
+        <View style={styles.rightPane}>
+          {/* Tabs */}
+          <View style={styles.tabContainer}>
+            <TouchableOpacity 
+                style={[styles.tab, activeTab === 'console' && styles.activeTab]}
+                onPress={() => setActiveTab('console')}
+            >
+              <Text style={[styles.tabText, activeTab === 'console' && styles.activeTabText]}>_ Live Console</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+                style={[styles.tab, activeTab === 'agent' && styles.activeTab]}
+                onPress={() => setActiveTab('agent')}
+            >
+              <Text style={[styles.tabText, activeTab === 'agent' && styles.activeTabText]}>🤖 AI Agent</Text>
+            </TouchableOpacity>
           </View>
-          <ScrollView style={styles.tutorScroll}>
-            <View style={styles.chatBubble}>
-              <Text style={styles.chatText}>{feedback}</Text>
-            </View>
-            
-            {output ? (
-              <View style={styles.outputBox}>
-                <Text style={styles.outputLabel}>Terminal Output:</Text>
-                <Text style={styles.outputText}>{output}</Text>
-              </View>
-            ) : null}
+
+          {/* Tab Content */}
+          <ScrollView style={styles.consoleScroll}>
+            {activeTab === 'console' ? (
+               <View style={styles.consoleBox}>
+                 <Text style={styles.consoleOutput}>{output}</Text>
+               </View>
+            ) : (
+               <View style={styles.agentBox}>
+                 <Text style={styles.agentText}>
+                    The global Floating AI Tutor is active! Click the robot icon in the top right to start chatting.
+                 </Text>
+               </View>
+            )}
           </ScrollView>
         </View>
       </View>
@@ -97,7 +115,7 @@ export default function WorkspaceScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0F172A', // Deep slate background
+    backgroundColor: '#0F172A',
   },
   header: {
     flexDirection: 'row',
@@ -108,8 +126,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#334155',
   },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   backButton: {
     padding: 8,
+    marginRight: 15,
   },
   backText: {
     color: '#94A3B8',
@@ -117,19 +140,20 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   title: {
-    color: '#fff',
+    color: '#E2E8F0',
     fontSize: 20,
     fontWeight: 'bold',
   },
   runButton: {
-    backgroundColor: '#10B981', // Emerald green
-    paddingHorizontal: 20,
+    backgroundColor: '#10B981', 
+    paddingHorizontal: 25,
     paddingVertical: 10,
     borderRadius: 8,
   },
   runText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 16,
   },
   mainContent: {
     flex: 1,
@@ -140,58 +164,60 @@ const styles = StyleSheet.create({
     borderRightWidth: 1,
     borderRightColor: '#334155',
   },
-  tutorPane: {
-    flex: 1,
-    backgroundColor: '#1E293B',
-  },
   fallback: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  tutorHeader: {
-    padding: 15,
+  rightPane: {
+    flex: 1,
+    backgroundColor: '#0F172A',
+    flexDirection: 'column',
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#1E293B',
     borderBottomWidth: 1,
     borderBottomColor: '#334155',
-    backgroundColor: '#0F172A',
   },
-  tutorTitle: {
-    color: '#E2E8F0',
-    fontSize: 18,
+  tab: {
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+  },
+  activeTab: {
+    borderBottomColor: '#10B981',
+  },
+  tabText: {
+    color: '#64748B',
     fontWeight: 'bold',
+    fontSize: 14,
   },
-  tutorScroll: {
+  activeTabText: {
+    color: '#F8FAFC',
+  },
+  consoleScroll: {
     flex: 1,
     padding: 15,
   },
-  chatBubble: {
-    backgroundColor: '#3B82F6', // Vibrant blue
-    padding: 15,
-    borderRadius: 12,
-    borderTopLeftRadius: 2,
-    marginBottom: 20,
+  consoleBox: {
+    flex: 1,
   },
-  chatText: {
-    color: '#fff',
-    fontSize: 15,
-    lineHeight: 22,
-  },
-  outputBox: {
-    backgroundColor: '#000',
-    padding: 15,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#334155',
-  },
-  outputLabel: {
-    color: '#64748B',
-    fontSize: 12,
-    marginBottom: 5,
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
-  },
-  outputText: {
+  consoleOutput: {
     color: '#10B981',
     fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  agentBox: {
+    padding: 20,
+    backgroundColor: '#1E293B',
+    borderRadius: 8,
+  },
+  agentText: {
+    color: '#94A3B8',
+    fontSize: 15,
+    lineHeight: 22,
   }
 });

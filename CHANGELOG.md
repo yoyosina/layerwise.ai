@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2026-06-08
+### Added
+- Split-pane IDE layout for Cloud Workspace
+
+### Changed
+- Integrated Piston Execution Engine for live compilation
+
+### Fixed
+- Removed duplicate AI Tutor pane from Workspace
+
 ## [1.2.0] - 2026-06-08
 ### Added
 - Real LLM Streaming Chat in Floating AI Tutor
