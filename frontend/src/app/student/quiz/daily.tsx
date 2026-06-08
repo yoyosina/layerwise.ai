@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Animated, { FadeInDown, ZoomIn } from 'react-native-reanimated';
 
@@ -12,6 +12,9 @@ export default function DailyQuizScreen() {
   const [answers, setAnswers] = useState({});
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes (600 seconds)
+  const scrollViewRef = useRef(null);
 
   useEffect(() => {
     const loadQuiz = async () => {
@@ -30,12 +33,25 @@ export default function DailyQuizScreen() {
     loadQuiz();
   }, [dayId]);
 
+  useEffect(() => {
+    // Timer logic
+    if (timeLeft <= 0 && !result && !isSubmitting) {
+      submitQuiz(); // auto submit when time is up
+      return;
+    }
+    if (!result && !loading) {
+      const timerId = setInterval(() => setTimeLeft((t) => t - 1), 1000);
+      return () => clearInterval(timerId);
+    }
+  }, [timeLeft, result, isSubmitting, loading]);
+
   const selectOption = (qId, oId) => {
-    if (result) return; // Prevent changing after submission
+    if (result || isSubmitting) return; // Prevent changing after submission or while submitting
     setAnswers(prev => ({ ...prev, [qId]: oId }));
   };
 
   const submitQuiz = async () => {
+    setIsSubmitting(true);
     try {
       const token = await AsyncStorage.getItem('user_token');
       const res = await fetch(`https://layerwise-ai.onrender.com/api/quiz/daily/${dayId}/submit`, { credentials: 'include', 
@@ -48,9 +64,21 @@ export default function DailyQuizScreen() {
       });
       const data = await res.json();
       setResult(data);
+      // Scroll to the top to see the result
+      setTimeout(() => {
+        scrollViewRef.current?.scrollTo({ y: 0, animated: true });
+      }, 100);
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsSubmitting(false);
     }
+  };
+
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
   if (loading) {
@@ -58,7 +86,15 @@ export default function DailyQuizScreen() {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} ref={scrollViewRef}>
+      {/* Header Container with Logo, Title, and Timer */}
+      <View style={styles.topBar}>
+        <Text style={styles.logoText}>Layerwise.ai</Text>
+        <Text style={[styles.timer, timeLeft < 60 && styles.timerWarning]}>
+          ⏱ {formatTime(timeLeft)}
+        </Text>
+      </View>
+      
       <Text style={styles.header}>Daily Quiz: Day {dayId}</Text>
       
       {result && (
@@ -70,10 +106,10 @@ export default function DailyQuizScreen() {
           
           <TouchableOpacity 
             style={styles.actionBtn} 
-            onPress={() => result.passed ? router.push('/student/dashboard') : setResult(null)}
+            onPress={() => result.passed ? router.push('/student/dashboard') : router.push(`/student/tasks/${dayId}`)}
           >
             <Text style={styles.actionBtnText}>
-              {result.passed ? "Return to Dashboard" : "Retake Quiz"}
+              {result.passed ? "Return to Dashboard" : "Revisit the lesson"}
             </Text>
           </TouchableOpacity>
         </Animated.View>
@@ -89,6 +125,7 @@ export default function DailyQuizScreen() {
                 key={opt.id} 
                 style={[styles.optionBtn, isSelected && styles.selectedOption]}
                 onPress={() => selectOption(q.id, opt.id)}
+                disabled={isSubmitting || result != null}
               >
                 <Text style={[styles.optionText, isSelected && styles.selectedOptionText]}>
                   {opt.text}
@@ -101,11 +138,16 @@ export default function DailyQuizScreen() {
 
       {!result && (
         <TouchableOpacity 
-          style={[styles.submitBtn, Object.keys(answers).length < questions.length && styles.disabledBtn]}
-          disabled={Object.keys(answers).length < questions.length}
+          style={[
+            styles.submitBtn, 
+            (Object.keys(answers).length < questions.length || isSubmitting) && styles.disabledBtn
+          ]}
+          disabled={Object.keys(answers).length < questions.length || isSubmitting}
           onPress={submitQuiz}
         >
-          <Text style={styles.submitBtnText}>Submit Answers</Text>
+          <Text style={styles.submitBtnText}>
+            {isSubmitting ? "Submitting..." : "Submit Answers"}
+          </Text>
         </TouchableOpacity>
       )}
       
@@ -125,6 +167,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#121212',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  logoText: {
+    color: '#bb86fc',
+    fontSize: 18,
+    fontWeight: '900',
+    letterSpacing: 1,
+  },
+  timer: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#03dac6',
+  },
+  timerWarning: {
+    color: '#ff5252',
   },
   header: {
     fontSize: 24,

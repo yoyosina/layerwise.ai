@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from api.routes import auth, curriculum, admin, student, quiz, workspace
+from api.routes import auth, curriculum, admin, student, quiz, workspace, tutor
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -36,6 +36,7 @@ app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
 app.include_router(student.router, prefix="/api/student", tags=["student"])
 app.include_router(quiz.router, prefix="/api/quiz", tags=["quiz"])
 app.include_router(workspace.router, prefix="/api/workspace", tags=["workspace"])
+app.include_router(tutor.router, prefix="/api/tutor", tags=["tutor"])
 
 @app.get("/")
 async def root():
