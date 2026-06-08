@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Platform, ActivityIndicator } from 'react-native';
 import { useRouter } from 'expo-router';
 import Editor from '@monaco-editor/react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function WorkspaceScreen() {
   const router = useRouter();
@@ -21,9 +22,14 @@ export default function WorkspaceScreen() {
     setActiveTab('console');
     
     try {
-      const res = await fetch('http://localhost:8000/api/workspace/evaluate', {
+      const token = await AsyncStorage.getItem('user_token');
+      const headers = { 'Content-Type': 'application/json' };
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+      const res = await fetch('https://layerwise-ai.onrender.com/api/workspace/evaluate', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headers,
         body: JSON.stringify({ code, language: 'javascript' }) 
       });
       const data = await res.json();
