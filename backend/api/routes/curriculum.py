@@ -10,7 +10,7 @@ router = APIRouter()
 
 @router.get("/modules")
 async def get_modules(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(Module).options(selectinload(Module.tasks)).order_by(Module.order))
+    result = await db.execute(select(Module).options(selectinload(Module.tasks).selectinload(Task.resources)).order_by(Module.order))
     modules = result.scalars().all()
     
     output_modules = []
@@ -18,10 +18,12 @@ async def get_modules(db: AsyncSession = Depends(get_db)):
         tasks = []
         sorted_tasks = sorted(m.tasks, key=lambda t: t.day)
         for t in sorted_tasks:
+            resource_link = t.resources[0].url if t.resources else ""
             tasks.append({
                 "id": t.id,
                 "title": t.title,
-                "day": t.day
+                "day": t.day,
+                "resource_link": resource_link
             })
             
         output_modules.append({
