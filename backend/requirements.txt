@@ -19,3 +19,4 @@ google-auth
 PyJWT
 aiosqlite
 slowapi
+langchain-groq
