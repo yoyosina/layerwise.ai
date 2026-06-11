@@ -182,26 +182,29 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     flexDirection: 'row',
-    backgroundColor: '#1E293B',
+    backgroundColor: 'rgba(30, 41, 59, 0.4)',
     borderBottomWidth: 1,
-    borderBottomColor: '#334155',
+    borderBottomColor: 'rgba(255, 255, 255, 0.05)',
   },
   tab: {
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: 20,
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
   },
   activeTab: {
     borderBottomColor: '#10B981',
+    backgroundColor: 'rgba(16, 185, 129, 0.05)',
   },
   tabText: {
     color: '#64748B',
-    fontWeight: 'bold',
+    fontWeight: '600',
     fontSize: 14,
+    letterSpacing: 0.5,
   },
   activeTabText: {
-    color: '#F8FAFC',
+    color: '#10B981',
+    fontWeight: '700',
   },
   consoleScroll: {
     flex: 1,
@@ -218,12 +221,20 @@ const styles = StyleSheet.create({
   },
   agentBox: {
     padding: 20,
-    backgroundColor: '#1E293B',
-    borderRadius: 8,
+    backgroundColor: 'rgba(30, 41, 59, 0.65)',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
   },
   agentText: {
-    color: '#94A3B8',
+    color: '#E2E8F0',
     fontSize: 15,
-    lineHeight: 22,
+    lineHeight: 24,
+    fontWeight: '500',
   }
 });
